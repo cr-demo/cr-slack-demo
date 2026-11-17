@@ -225,5 +225,41 @@ window.RECIPES = [
       "Cool in the pan for 15 minutes, then turn out onto a rack and cool completely. Dust with powdered sugar before serving."
     ],
     "contributor": "Community contribution"
+  },
+  {
+    "id": "fruit-cake",
+    "title": "Fruit cake",
+    "category": "cake",
+    "description": "A warmly spiced cake filled with orange-soaked dried fruit and baked until golden.",
+    "minutes": 210,
+    "yieldLabel": "10 slices",
+    "art": "bundt",
+    "tone": "orange",
+    "tags": [
+      "Fruity",
+      "Contains gluten",
+      "Contains dairy and eggs",
+      "High in sugar"
+    ],
+    "ingredients": [
+      "350 g mixed dried fruit",
+      "100 ml orange juice",
+      "200 g all-purpose flour",
+      "1½ tsp baking powder",
+      "1 tsp ground cinnamon",
+      "¼ tsp salt",
+      "150 g unsalted butter, softened, plus more for the pan",
+      "125 g brown sugar",
+      "3 large eggs"
+    ],
+    "steps": [
+      "Mix the dried fruit and orange juice in a bowl and leave to soak for 30 minutes.",
+      "Heat the oven to 150°C / 300°F. Grease a 20 cm / 8-inch round cake pan and line its base and sides with baking paper.",
+      "Whisk the flour, baking powder, cinnamon, and salt. In another bowl, beat the butter and brown sugar until fluffy, then beat in the eggs one at a time.",
+      "Fold in the flour mixture, followed by the soaked fruit and any remaining juice. Spoon the batter into the pan and level the top.",
+      "Bake for 75–95 minutes, until a skewer inserted in the center comes out without wet batter. Cover loosely with foil if the top browns too quickly.",
+      "Cool in the pan for 10 minutes, then turn out onto a rack and cool completely, about 1 hour, before slicing."
+    ],
+    "contributor": "Community contribution"
   }
 ];
