@@ -261,5 +261,32 @@ window.RECIPES = [
       "Cool in the pan for 10 minutes, then turn out onto a rack and cool completely, about 1 hour, before slicing."
     ],
     "contributor": "Community contribution"
+  },
+  {
+    "id": "manhattan",
+    "title": "Manhattan",
+    "category": "cocktail",
+    "description": "Rye whiskey and sweet vermouth make a smooth, bitters-accented classic.",
+    "minutes": 5,
+    "yieldLabel": "1 cocktail",
+    "art": "martini",
+    "tone": "orange",
+    "tags": [
+      "Classic",
+      "Contains alcohol"
+    ],
+    "ingredients": [
+      "50 ml rye whiskey",
+      "20 ml sweet red vermouth",
+      "1 dash Angostura bitters",
+      "Ice",
+      "1 cocktail cherry, for garnish"
+    ],
+    "steps": [
+      "Chill a cocktail glass.",
+      "Combine the rye whiskey, sweet vermouth, and bitters in a mixing glass filled with ice. Stir until chilled.",
+      "Strain into the chilled glass and garnish with the cocktail cherry."
+    ],
+    "contributor": "Community contribution"
   }
 ];
