@@ -6,16 +6,68 @@ const recipes = window.RECIPES || [];
 const palettes = {pink:'#efd7d2',peach:'#ead6bd',yellow:'#ede1ad',sage:'#dbe3d0',lavender:'#ded8e5',orange:'#edc6aa'};
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const berry = (x,y,s=1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-9 0 Q-12 12 0 19 Q12 12 9 0Z" fill="#b54133"/><path d="m-9 0 7-3 2-6 3 6 7 3-9 2Z" fill="#4b6741"/><g fill="#f1c987"><circle cx="-4" cy="6" r=".8"/><circle cx="4" cy="7" r=".8"/><circle cy="12" r=".8"/></g></g>`;
-function art(type,tone){
-const base=`<ellipse cx="200" cy="244" rx="108" ry="13" fill="#24382d" opacity=".09"/>`;
-let shape='';
-if(type==='layer-cake') shape=`<ellipse cx="200" cy="230" rx="111" ry="19" fill="#f7f2e4"/><path d="M114 144v69q86 38 172 0v-69Z" fill="#dfaf73"/><path d="M114 164q86 31 172 0v15q-86 31-172 0Z" fill="#fff4db"/><path d="M114 190q86 31 172 0v9q-86 31-172 0Z" fill="#b9413e"/><ellipse cx="200" cy="144" rx="86" ry="26" fill="#fff5de"/><path d="M114 144v17q8 13 16 2v-8q12 20 22 6v-5q12 17 19 9v-3q15 13 26 0v-6q11 18 22 7v-8q12 12 21 2v-7q12 13 23 3l8-12Z" fill="#fff5de"/>${berry(155,125,1.1)}${berry(195,114,1.1)}${berry(235,127,1.1)}${berry(211,144,.8)}<path d="m160 117 10-20 13 8-17 15" fill="#57704c"/>`;
-else if(type==='bundt') shape=`<ellipse cx="200" cy="227" rx="112" ry="21" fill="#f6f1de"/><path d="M102 199Q110 112 200 109Q290 112 298 199Q278 238 200 237Q122 238 102 199Z" fill="#c58a43"/><ellipse cx="200" cy="158" rx="94" ry="51" fill="#e6b869"/><path d="M132 175q-5-44 29-57M164 194q-3-62 20-82M203 201v-89M241 195q9-56-21-80M272 178q0-40-32-54" fill="none" stroke="#c68d45" stroke-width="8"/><ellipse cx="200" cy="150" rx="24" ry="16" fill="#997045"/><ellipse cx="200" cy="145" rx="21" ry="11" fill="${palettes[tone]||palettes.yellow}"/><path d="M116 160q18 19 39 3t36 7 39-4 49-6" fill="none" stroke="#fff6d9" stroke-width="5"/><path d="M261 208q15-32 45-9-9 35-45 9" fill="#f3cc4a" stroke="#fff2af" stroke-width="5"/>`;
-else if(type==='chocolate-cake') shape=`<ellipse cx="200" cy="233" rx="110" ry="19" fill="#f5ecdd"/><path d="M116 144v72q84 35 168 0v-72Z" fill="#684032"/><path d="M116 169q84 30 168 0v9q-84 32-168 0" fill="#a57051"/><path d="M116 196q84 30 168 0v8q-84 32-168 0" fill="#a57051"/><ellipse cx="200" cy="144" rx="84" ry="26" fill="#452c29"/><path d="M117 146v26q9 12 15 0v-13q13 14 20 0 13 13 20 2v17q10 9 17-2v-12q13 10 21-2 15 15 24-2v10q9 9 16-2v-10q15 4 33-9" fill="#452c29"/><path d="m166 130 12-26 25 12-11 25Z" fill="#372623"/><path d="m204 135 9-24 28 13-12 23Z" fill="#714734"/>${berry(151,133,.8)}${berry(245,142,.8)}`;
-else if(type==='martini') shape=`<path d="M198 169v66m-43 4q45-13 90 0" stroke="#faf6e6" stroke-width="5" fill="none"/><path d="M111 102q89 157 178 0Z" fill="#f6ecd8" opacity=".75"/><path d="M123 119q77 117 154 0Z" fill="#704b36"/><ellipse cx="200" cy="117" rx="77" ry="12" fill="#ead6ac"/><ellipse cx="200" cy="102" rx="89" ry="14" fill="none" stroke="#fff7e8" stroke-width="3"/><g fill="#5b3a28"><ellipse cx="190" cy="116" rx="5" ry="3" transform="rotate(-25 190 116)"/><ellipse cx="203" cy="113" rx="5" ry="3"/><ellipse cx="208" cy="121" rx="5" ry="3"/></g>`;
-else if(type==='highball') shape=`<path d="m151 77 13 154q36 12 72 0l13-154Z" fill="#fff" opacity=".42"/><path d="m158 111 10 113q32 12 64 0l10-113Z" fill="#b9c17e" opacity=".8"/><ellipse cx="200" cy="110" rx="42" ry="8" fill="#e9edc2"/><g fill="#fff" opacity=".45"><rect x="172" y="127" width="25" height="26" rx="4" transform="rotate(-12 172 127)"/><rect x="202" y="159" width="24" height="24" rx="4" transform="rotate(12 202 159)"/></g><path d="M211 213q-36-47 7-93t-1-52" fill="none" stroke="#5b824e" stroke-width="8"/><path d="M200 77q-36-53-60-30 0 37 60 30m0 0q-8-60 24-55 20 35-24 55" fill="#4d7047"/><ellipse cx="200" cy="77" rx="49" ry="9" fill="none" stroke="#fff9e8" stroke-width="3"/><path d="m220 67 22-38" stroke="#e7d7b7" stroke-width="4"/>`;
-else shape=`<path d="m142 115 10 113q48 15 96 0l10-113Z" fill="#fff" opacity=".46"/><path d="m148 143 8 78q44 15 88 0l7-78Z" fill="#b66632" opacity=".85"/><ellipse cx="200" cy="143" rx="51" ry="9" fill="#d29448"/><g fill="#ffefd1" opacity=".5"><rect x="162" y="153" width="32" height="32" rx="4" transform="rotate(-15 162 153)"/><rect x="204" y="173" width="30" height="30" rx="4" transform="rotate(14 204 173)"/></g><ellipse cx="200" cy="115" rx="58" ry="10" fill="none" stroke="#fff8e9" stroke-width="3"/><circle cx="248" cy="118" r="30" fill="#e69943" stroke="#f5d78d" stroke-width="5"/><circle cx="248" cy="118" r="22" fill="#b94731"/><path d="m248 97v42m-21-21h42m-36-15 30 30m0-30-30 30" stroke="#eeac71" stroke-width="2"/>`;
-return `<svg viewBox="0 0 400 285" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${base}${shape}<path d="m82 84 3-9 3 9 9 3-9 3-3 9-3-9-9-3Z" fill="#a7875d" opacity=".65"/><circle cx="310" cy="181" r="3" fill="#a7875d" opacity=".5"/></svg>`;
+const recipeIllustrations = new Map([
+  ['slack-a-rita', `
+    <path d="M200 180v52m-40 8q40-13 80 0" fill="none" stroke="#fffaf0" stroke-width="6" stroke-linecap="round"/>
+    <path d="M105 89Q112 154 155 173Q200 195 245 173Q288 154 295 89Z" fill="#f8f6df" opacity=".78"/>
+    <path d="M114 109Q126 153 161 168Q200 184 239 168Q274 153 286 109Z" fill="#d8e5a7"/>
+    <ellipse cx="200" cy="109" rx="86" ry="13" fill="#edf2c7"/>
+    <path d="M106 89Q112 154 155 173Q200 195 245 173Q288 154 294 89" fill="none" stroke="#fffaf0" stroke-width="3"/>
+    <g transform="rotate(-8 200 139)">
+      <path d="M171 117l13-7h44l7 7-6 40-13 7h-45Z" fill="#dff4ef" opacity=".85" stroke="#fffdf1" stroke-width="2"/>
+      <path d="M171 117l13-7h44l-12 8Z" fill="#fff" opacity=".65"/>
+      <path d="M216 118l19-1-6 40-13 7Z" fill="#b9d9d0" opacity=".65"/>
+      <g transform="translate(183 123)">
+        <g fill="#36c5f0">
+          <rect x="8" y="0" width="7" height="21" rx="3.5"/>
+          <circle cx="3.5" cy="17.5" r="3.5"/>
+        </g>
+        <g fill="#2eb67d">
+          <rect x="17" y="8" width="21" height="7" rx="3.5"/>
+          <circle cx="20.5" cy="3.5" r="3.5"/>
+        </g>
+        <g fill="#e01e5a">
+          <rect x="23" y="17" width="7" height="21" rx="3.5"/>
+          <circle cx="34.5" cy="20.5" r="3.5"/>
+        </g>
+        <g fill="#ecb22e">
+          <rect x="0" y="23" width="21" height="7" rx="3.5"/>
+          <circle cx="17.5" cy="34.5" r="3.5"/>
+        </g>
+      </g>
+    </g>
+    <ellipse cx="200" cy="89" rx="95" ry="13" fill="none" stroke="#fff9e8" stroke-width="4"/>
+    <path d="M113 85q8-5 15-5m8-3 5-2m9-1 5-1m8-1 4-1m16-1 5-1m14 0 5 1m14 1 5 1m12 2 5 1m10 2 5 2m8 2 5 3" stroke="#fffdf3" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="282" cy="84" r="27" fill="#8ba95c" stroke="#fff7db" stroke-width="3"/>
+    <circle cx="282" cy="84" r="21" fill="#dbe5a6"/>
+    <path d="M282 63v42m-21-21h42m-36-15 30 30m0-30-30 30" stroke="#f7f6d4" stroke-width="2"/>
+  `],
+  ['reinvent-vanilla-cloud-cake', `
+    <ellipse cx="200" cy="229" rx="110" ry="19" fill="#f8f1df"/>
+    <path d="M113 136v75q87 39 174 0v-75Z" fill="#e5b77f"/>
+    <path d="M113 161q87 29 174 0v14q-87 30-174 0Z" fill="#fff5df"/>
+    <path d="M113 189q87 29 174 0v11q-87 29-174 0Z" fill="#f4e6cf"/>
+    <ellipse cx="200" cy="136" rx="87" ry="27" fill="#fff7e8"/>
+    <path d="M113 136v16q8 12 17 2v-5q12 16 22 5v-4q12 13 20 6v-3q15 10 25-1v-3q13 14 24 5v-5q12 11 21 2v-4q12 10 23 2l11-13Z" fill="#fff7e8"/>
+    <path d="M128 134q16-11 30-14m23-5q17-3 34-1m22 3q17 3 30 10" fill="none" stroke="#e89137" stroke-width="5" stroke-linecap="round"/>
+    <path d="M157 185q-8-1-8-9 0-9 10-10 3-11 14-11 9 0 13 7 5-8 16-8 12 0 16 10 12-2 16 8 4 10-7 14Z" fill="#fffaf0" stroke="#eadac4" stroke-width="2"/>
+    <text x="191" y="178" text-anchor="middle" fill="#24382d" font-family="Arial,sans-serif" font-weight="bold" font-size="19">aws</text>
+    <path d="M175 182q17 8 34 0m-3-1 5 1-2 4" fill="none" stroke="#e88727" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M126 210q74 25 148 0" fill="none" stroke="#d79254" opacity=".55" stroke-width="2"/>
+  `]
+]);
+function art(type,tone,recipeId){
+  const base=`<ellipse cx="200" cy="244" rx="108" ry="13" fill="#24382d" opacity=".09"/>`;
+  let shape = recipeIllustrations.get(recipeId);
+  if (shape === undefined) {
+    if(type==='layer-cake') shape=`<ellipse cx="200" cy="230" rx="111" ry="19" fill="#f7f2e4"/><path d="M114 144v69q86 38 172 0v-69Z" fill="#dfaf73"/><path d="M114 164q86 31 172 0v15q-86 31-172 0Z" fill="#fff4db"/><path d="M114 190q86 31 172 0v9q-86 31-172 0Z" fill="#b9413e"/><ellipse cx="200" cy="144" rx="86" ry="26" fill="#fff5de"/><path d="M114 144v17q8 13 16 2v-8q12 20 22 6v-5q12 17 19 9v-3q15 13 26 0v-6q11 18 22 7v-8q12 12 21 2v-7q12 13 23 3l8-12Z" fill="#fff5de"/>${berry(155,125,1.1)}${berry(195,114,1.1)}${berry(235,127,1.1)}${berry(211,144,.8)}<path d="m160 117 10-20 13 8-17 15" fill="#57704c"/>`;
+    else if(type==='bundt') shape=`<ellipse cx="200" cy="227" rx="112" ry="21" fill="#f6f1de"/><path d="M102 199Q110 112 200 109Q290 112 298 199Q278 238 200 237Q122 238 102 199Z" fill="#c58a43"/><ellipse cx="200" cy="158" rx="94" ry="51" fill="#e6b869"/><path d="M132 175q-5-44 29-57M164 194q-3-62 20-82M203 201v-89M241 195q9-56-21-80M272 178q0-40-32-54" fill="none" stroke="#c68d45" stroke-width="8"/><ellipse cx="200" cy="150" rx="24" ry="16" fill="#997045"/><ellipse cx="200" cy="145" rx="21" ry="11" fill="${palettes[tone]||palettes.yellow}"/><path d="M116 160q18 19 39 3t36 7 39-4 49-6" fill="none" stroke="#fff6d9" stroke-width="5"/><path d="M261 208q15-32 45-9-9 35-45 9" fill="#f3cc4a" stroke="#fff2af" stroke-width="5"/>`;
+    else if(type==='chocolate-cake') shape=`<ellipse cx="200" cy="233" rx="110" ry="19" fill="#f5ecdd"/><path d="M116 144v72q84 35 168 0v-72Z" fill="#684032"/><path d="M116 169q84 30 168 0v9q-84 32-168 0" fill="#a57051"/><path d="M116 196q84 30 168 0v8q-84 32-168 0" fill="#a57051"/><ellipse cx="200" cy="144" rx="84" ry="26" fill="#452c29"/><path d="M117 146v26q9 12 15 0v-13q13 14 20 0 13 13 20 2v17q10 9 17-2v-12q13 10 21-2 15 15 24-2v10q9 9 16-2v-10q15 4 33-9" fill="#452c29"/><path d="m166 130 12-26 25 12-11 25Z" fill="#372623"/><path d="m204 135 9-24 28 13-12 23Z" fill="#714734"/>${berry(151,133,.8)}${berry(245,142,.8)}`;
+    else if(type==='martini') shape=`<path d="M198 169v66m-43 4q45-13 90 0" stroke="#faf6e6" stroke-width="5" fill="none"/><path d="M111 102q89 157 178 0Z" fill="#f6ecd8" opacity=".75"/><path d="M123 119q77 117 154 0Z" fill="#704b36"/><ellipse cx="200" cy="117" rx="77" ry="12" fill="#ead6ac"/><ellipse cx="200" cy="102" rx="89" ry="14" fill="none" stroke="#fff7e8" stroke-width="3"/><g fill="#5b3a28"><ellipse cx="190" cy="116" rx="5" ry="3" transform="rotate(-25 190 116)"/><ellipse cx="203" cy="113" rx="5" ry="3"/><ellipse cx="208" cy="121" rx="5" ry="3"/></g>`;
+    else if(type==='highball') shape=`<path d="m151 77 13 154q36 12 72 0l13-154Z" fill="#fff" opacity=".42"/><path d="m158 111 10 113q32 12 64 0l10-113Z" fill="#b9c17e" opacity=".8"/><ellipse cx="200" cy="110" rx="42" ry="8" fill="#e9edc2"/><g fill="#fff" opacity=".45"><rect x="172" y="127" width="25" height="26" rx="4" transform="rotate(-12 172 127)"/><rect x="202" y="159" width="24" height="24" rx="4" transform="rotate(12 202 159)"/></g><path d="M211 213q-36-47 7-93t-1-52" fill="none" stroke="#5b824e" stroke-width="8"/><path d="M200 77q-36-53-60-30 0 37 60 30m0 0q-8-60 24-55 20 35-24 55" fill="#4d7047"/><ellipse cx="200" cy="77" rx="49" ry="9" fill="none" stroke="#fff9e8" stroke-width="3"/><path d="m220 67 22-38" stroke="#e7d7b7" stroke-width="4"/>`;
+    else shape=`<path d="m142 115 10 113q48 15 96 0l10-113Z" fill="#fff" opacity=".46"/><path d="m148 143 8 78q44 15 88 0l7-78Z" fill="#b66632" opacity=".85"/><ellipse cx="200" cy="143" rx="51" ry="9" fill="#d29448"/><g fill="#ffefd1" opacity=".5"><rect x="162" y="153" width="32" height="32" rx="4" transform="rotate(-15 162 153)"/><rect x="204" y="173" width="30" height="30" rx="4" transform="rotate(14 204 173)"/></g><ellipse cx="200" cy="115" rx="58" ry="10" fill="none" stroke="#fff8e9" stroke-width="3"/><circle cx="248" cy="118" r="30" fill="#e69943" stroke="#f5d78d" stroke-width="5"/><circle cx="248" cy="118" r="22" fill="#b94731"/><path d="m248 97v42m-21-21h42m-36-15 30 30m0-30-30 30" stroke="#eeac71" stroke-width="2"/>`;
+  }
+  return `<svg viewBox="0 0 400 285" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${base}${shape}<path d="m82 84 3-9 3 9 9 3-9 3-3 9-3-9-9-3Z" fill="#a7875d" opacity=".65"/><circle cx="310" cy="181" r="3" fill="#a7875d" opacity=".5"/></svg>`;
 }
 const heroCake=art('layer-cake','pink').replace(/<svg[^>]*>|<\/svg>/g,'');
 const heroDrink=art('martini','peach').replace(/<svg[^>]*>|<\/svg>/g,'');
@@ -28,11 +80,11 @@ const visible=recipes.filter(r=>(filter==='all'||(filter==='saved'?saved.has(r.i
 $('#recipe-count').textContent=`${recipes.length} recipes · made to be shared`;
 $('#results-status').textContent=`${visible.length} ${visible.length===1?'recipe':'recipes'} shown`;
 $('#empty').hidden=visible.length>0;
-$('#recipes').innerHTML=visible.map(r=>`<article class="card" style="--tone:${palettes[r.tone]||palettes.pink}"><button class="card-open" data-open="${esc(r.id)}" aria-label="View ${esc(r.title)}"><span class="card-visual">${art(r.art,r.tone)}</span><span class="card-meta"><span>${esc(r.category)}</span><span>· ${r.minutes} MIN</span></span><h3>${esc(r.title)}</h3><p>${esc(r.description)}</p></button><button class="save" data-save="${esc(r.id)}" aria-label="Save ${esc(r.title)}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button><div class="credit">${r.contributor==='Starter collection'?'From the starter collection':`Contributed by ${esc(r.contributor)}`}</div></article>`).join('');
+$('#recipes').innerHTML=visible.map(r=>`<article class="card" style="--tone:${palettes[r.tone]||palettes.pink}"><button class="card-open" data-open="${esc(r.id)}" aria-label="View ${esc(r.title)}"><span class="card-visual">${art(r.art,r.tone,r.id)}</span><span class="card-meta"><span>${esc(r.category)}</span><span>· ${r.minutes} MIN</span></span><h3>${esc(r.title)}</h3><p>${esc(r.description)}</p></button><button class="save" data-save="${esc(r.id)}" aria-label="Save ${esc(r.title)}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button><div class="credit">${r.contributor==='Starter collection'?'From the starter collection':`Contributed by ${esc(r.contributor)}`}</div></article>`).join('');
 }
 let returnFocus=null;
 function show(dialog){returnFocus=document.activeElement;dialog.showModal();}
-function openRecipe(id){const r=recipes.find(r=>r.id===id);if(!r)return;$('#recipe-detail').innerHTML=`<div class="detail-top" style="--tone:${palettes[r.tone]||palettes.pink}">${art(r.art,r.tone)}<div><div class="eyebrow red">${esc(r.category)} · ${r.minutes} MIN</div><h2 id="recipe-title">${esc(r.title)}</h2><p>${esc(r.description)}</p><strong>${esc(r.yieldLabel)}</strong><div class="detail-tags">${r.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></div><div class="detail-body"><section><h3>What you’ll need</h3><ul>${r.ingredients.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></section><section><h3>Let’s make it</h3><ol>${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></section></div><div class="detail-credit">${esc(r.contributor)} · Made together with CodeRabbit</div>`;show($('#recipe-dialog'));}
+function openRecipe(id){const r=recipes.find(r=>r.id===id);if(!r)return;$('#recipe-detail').innerHTML=`<div class="detail-top" style="--tone:${palettes[r.tone]||palettes.pink}">${art(r.art,r.tone,r.id)}<div><div class="eyebrow red">${esc(r.category)} · ${r.minutes} MIN</div><h2 id="recipe-title">${esc(r.title)}</h2><p>${esc(r.description)}</p><strong>${esc(r.yieldLabel)}</strong><div class="detail-tags">${r.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></div><div class="detail-body"><section><h3>What you’ll need</h3><ul>${r.ingredients.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></section><section><h3>Let’s make it</h3><ol>${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></section></div><div class="detail-credit">${esc(r.contributor)} · Made together with CodeRabbit</div>`;show($('#recipe-dialog'));}
 $('#recipes').addEventListener('click',e=>{const save=e.target.closest('[data-save]');if(save){const id=save.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);persist();render();document.querySelector(`[data-save="${id}"]`)?.focus();return;}const open=e.target.closest('[data-open]');if(open)openRecipe(open.dataset.open);});
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(t=>{t.classList.toggle('active',t===b);t.setAttribute('aria-pressed',String(t===b));});render();}));
 $('#search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render();});
