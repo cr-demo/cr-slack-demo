@@ -314,5 +314,73 @@ window.RECIPES = [
       "Strain into a rocks glass over a large ice cube. Express the orange peel over the drink and add it as a garnish."
     ],
     "contributor": "Community contribution"
+  },
+  {
+    "id": "slack-a-rita",
+    "title": "Slack-a-Rita",
+    "category": "cocktail",
+    "description": "A classic tequila margarita with fresh lime, orange liqueur, and a salty rim.",
+    "minutes": 5,
+    "yieldLabel": "1 cocktail",
+    "art": "martini",
+    "tone": "sage",
+    "tags": [
+      "Classic",
+      "Citrus",
+      "Contains alcohol"
+    ],
+    "ingredients": [
+      "50 ml blanco tequila",
+      "25 ml orange liqueur",
+      "25 ml fresh lime juice",
+      "Ice, for shaking and serving",
+      "Coarse salt, for the rim",
+      "1 lime wheel, for garnish"
+    ],
+    "steps": [
+      "Rub the rim of a margarita glass with the lime wheel, then dip the rim in coarse salt. Fill the glass with fresh ice.",
+      "Add tequila, orange liqueur, and lime juice to a shaker filled with ice. Shake for 15–20 seconds until well chilled.",
+      "Strain over the fresh ice in the prepared glass and garnish with the lime wheel."
+    ],
+    "contributor": "Community contribution"
+  },
+  {
+    "id": "reinvent-vanilla-cloud-cake",
+    "title": "re:Invent vanilla cloud cake",
+    "category": "cake",
+    "description": "A classic vanilla layer cake with buttercream and a cloud decoration for AWS re:Invent.",
+    "minutes": 110,
+    "yieldLabel": "8 slices",
+    "art": "layer-cake",
+    "tone": "orange",
+    "tags": [
+      "Vanilla",
+      "Celebration",
+      "AWS re:Invent"
+    ],
+    "ingredients": [
+      "180 g all-purpose flour",
+      "1½ tsp baking powder",
+      "¼ tsp salt",
+      "115 g unsalted butter, softened, for the cake",
+      "150 g granulated sugar",
+      "2 large eggs",
+      "2 tsp vanilla extract, divided",
+      "120 ml whole milk, for the cake",
+      "125 g unsalted butter, softened, for the buttercream",
+      "220 g powdered sugar",
+      "15–30 ml whole milk, for the buttercream",
+      "40 g white ready-to-roll fondant",
+      "A little black and orange writing icing, for decoration"
+    ],
+    "steps": [
+      "Heat the oven to 175°C / 350°F. Grease and line two 15 cm / 6-inch round cake pans.",
+      "Whisk the flour, baking powder, and salt. In a separate bowl, beat 115 g butter with the granulated sugar until fluffy; beat in the eggs one at a time and 1 tsp vanilla.",
+      "Fold in the flour mixture in two additions, alternating with the 120 ml milk. Divide between the pans and bake for 25–30 minutes, until a skewer comes out clean.",
+      "Cool in the pans for 10 minutes, then turn out and cool completely on a rack, about 45 minutes.",
+      "Beat 125 g butter with the powdered sugar and remaining 1 tsp vanilla. Add 15–30 ml milk as needed for a spreadable buttercream. Fill and frost the cooled cake.",
+      "Roll out the fondant, cut a cloud shape, and press it onto the side of the cake. Use the black and orange writing icing to add an AWS-inspired decoration."
+    ],
+    "contributor": "Community contribution"
   }
 ];
