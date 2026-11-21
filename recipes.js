@@ -290,6 +290,32 @@ window.RECIPES = [
     "contributor": "Community contribution"
   },
   {
+    "id": "rum-old-fashioned",
+    "title": "Rum Old Fashioned",
+    "category": "cocktail",
+    "description": "A mellow, rum-led twist on the classic, finished with orange oils.",
+    "minutes": 5,
+    "yieldLabel": "1 cocktail",
+    "art": "rocks",
+    "tone": "peach",
+    "tags": [
+      "Classic twist",
+      "Contains alcohol"
+    ],
+    "ingredients": [
+      "60 ml aged rum",
+      "5 ml demerara syrup",
+      "2 dashes aromatic bitters",
+      "Ice, including 1 large cube",
+      "1 orange peel, for garnish"
+    ],
+    "steps": [
+      "Add rum, syrup, and bitters to a mixing glass filled with ice. Stir for 20–30 seconds until chilled.",
+      "Strain into a rocks glass over a large ice cube. Express the orange peel over the drink and add it as a garnish."
+    ],
+    "contributor": "Community contribution"
+  },
+  {
     "id": "slack-a-rita",
     "title": "Slack-a-Rita",
     "category": "cocktail",
